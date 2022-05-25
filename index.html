@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<style>
+#myProgress {
+  width: 100%;
+  background-color: rgb(226, 209, 209);
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:700;
+  background-color: #723e97;
+  text-align: center;
+  line-height: 30px;
+  color: rgb(45, 9, 9);
+}
+</style>
+<body>
+
+<h1>Индикатор прогресса с меткой</h1>
+
+<div id="myProgress">
+  <div id="myBar">10%</div>
+</div>
+
+<br>
+<button onclick="move()">Нажмите</button> 
+
+<script>
+let i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    let elem = document.getElementById("myBar");
+    let width = 0;
+    let id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+        elem.innerHTML = width  + "%";
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+
+
